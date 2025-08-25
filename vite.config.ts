@@ -13,12 +13,6 @@ export default defineConfig({
         // Better chunk splitting for caching
         manualChunks: {
           vendor: ["solid-js"],
-          // Separate theme assets for better caching
-          themes: [
-            "./src/assets/themes/default",
-            "./src/assets/themes/flat",
-            "./src/assets/themes/minimalistic",
-          ],
         },
         // Optimize chunk names for better caching
         chunkFileNames: (chunkInfo) => {
@@ -43,13 +37,7 @@ export default defineConfig({
     // Enable source maps for better debugging
     sourcemap: false,
     // Optimize for production
-    minify: "terser",
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-      },
-    },
+    minify: "esbuild",
     // Optimize chunk size warnings
     chunkSizeWarningLimit: 1000,
   },
