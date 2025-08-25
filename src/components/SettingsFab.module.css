@@ -1,0 +1,51 @@
+.fab {
+  position: fixed;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--glass-stroke);
+  background: linear-gradient(180deg, var(--glass-bg), var(--glass-bg-strong));
+  color: var(--text-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px 0 16px;
+  cursor: pointer;
+  box-shadow: var(--shadow-light);
+  -webkit-backdrop-filter: blur(calc(var(--glass-blur) * 0.6));
+  backdrop-filter: blur(calc(var(--glass-blur) * 0.6));
+  transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+  z-index: 1100;
+}
+
+.bottomRight {
+  right: 16px;
+  bottom: 16px;
+}
+
+.bottomLeft {
+  left: 16px;
+  bottom: 16px;
+}
+
+.fab:hover {
+  box-shadow: var(--shadow-medium);
+  transform: translateY(-1px);
+}
+
+.fab:active {
+  transform: translateY(0);
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 200ms ease;
+}
+
+.open .arrow {
+  transform: rotate(180deg);
+}

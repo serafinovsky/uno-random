@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#6750a4" />
+
+    <!-- SEO Meta Tags -->
+    <title>UNO Random - Free Online UNO Card Generator | Draw Random Cards</title>
+    <meta name="description" content="Generate random UNO cards instantly! Free online UNO card generator with beautiful themes. Perfect for UNO games, card games, and entertainment. Draw cards, change themes, and enjoy!" />
+    <meta name="keywords" content="UNO, UNO cards, random card generator, card games, UNO game, free UNO, online UNO, card generator, UNO random, draw cards, UNO themes" />
+    <meta name="author" content="UNO Random" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://serafinovsky.github.io/uno-random/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://serafinovsky.github.io/uno-random/" />
+    <meta property="og:title" content="UNO Random - Free Online UNO Card Generator" />
+    <meta property="og:description" content="Generate random UNO cards instantly! Free online UNO card generator with beautiful themes. Perfect for UNO games and entertainment." />
+    <meta property="og:image" content="https://serafinovsky.github.io/uno-random/screenshot-wide.png" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="720" />
+    <meta property="og:site_name" content="UNO Random" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://serafinovsky.github.io/uno-random/" />
+    <meta property="twitter:title" content="UNO Random - Free Online UNO Card Generator" />
+    <meta property="twitter:description" content="Generate random UNO cards instantly! Free online UNO card generator with beautiful themes." />
+    <meta property="twitter:image" content="https://serafinovsky.github.io/uno-random/screenshot-wide.png" />
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="application-name" content="UNO Random" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="UNO Random" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="msapplication-TileColor" content="#6750a4" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "UNO Random",
+      "description": "Free online UNO card generator with beautiful themes. Generate random UNO cards instantly for games and entertainment.",
+      "url": "https://serafinovsky.github.io/uno-random/",
+      "applicationCategory": "Game",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "screenshot": "https://serafinovsky.github.io/uno-random/screenshot-wide.png",
+      "featureList": [
+        "Random UNO card generation",
+        "Multiple card themes",
+        "Mobile responsive design",
+        "PWA support",
+        "Offline functionality"
+      ],
+      "author": {
+        "@type": "Organization",
+        "name": "UNO Random"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "UNO Random"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+          .register('/sw.js')
+          .then((registration) => {
+            console.log('SW registered: ', registration)
+          })
+          .catch((registrationError) => {
+            console.log('SW registration failed: ', registrationError)
+          })
+      }
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/index.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemap location (you should create a sitemap.xml file)
+Sitemap: https://serafinovsky.github.io/uno-random/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+Allow: /assets/
+Allow: /public/
+Allow: /favicon.ico
+Allow: /manifest.json

@@ -1,0 +1,141 @@
+.unoCard {
+  width: 100%;
+  max-width: 420px;
+  margin: 32px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: linear-gradient(180deg, var(--glass-bg), var(--glass-bg-strong));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  color: var(--text-color);
+  font-size: 32px;
+  cursor: pointer;
+  box-shadow: var(--shadow-light);
+  transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+  position: relative;
+  overflow: visible;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  border: 1px solid var(--glass-stroke);
+}
+
+.unoCard:hover {
+  box-shadow: var(--shadow-medium);
+  transform: translateY(-2px);
+}
+
+.unoCard:active {
+  transform: translateY(0);
+}
+
+.unoCard div[innerHTML] {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.unoCard div[innerHTML] svg {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.cardSvgContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.cardSvgContainer svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cardFront,
+.cardEmpty {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.cardFront {
+  position: relative;
+}
+
+.cardEmpty {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.cardEmpty .cardIcon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.7;
+}
+
+.cardEmpty p {
+  font-size: 16px;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.cardIcon {
+  font-size: 64px;
+  line-height: 1;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .unoCard {
+    max-width: 320px;
+    margin: 16px auto;
+  }
+
+  .cardSvgContainer,
+  .unoCard div[innerHTML] {
+    padding: 12px;
+  }
+
+  .cardEmpty .cardIcon {
+    font-size: 36px;
+  }
+
+  .cardEmpty p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .unoCard {
+    max-width: 280px;
+    margin: 12px auto;
+  }
+
+  .cardSvgContainer,
+  .unoCard div[innerHTML] {
+    padding: 8px;
+  }
+
+  .cardEmpty .cardIcon {
+    font-size: 28px;
+  }
+
+  .cardEmpty p {
+    font-size: 12px;
+  }
+}

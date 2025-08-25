@@ -1,0 +1,45 @@
+.splash {
+  width: 100%;
+  padding: 64px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: var(--text-secondary);
+}
+
+.loader {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: relative;
+  background: conic-gradient(
+    var(--uno-red, #e53935) 0 25%,
+    var(--uno-yellow, #fdd835) 0 50%,
+    var(--uno-green, #43a047) 0 75%,
+    var(--uno-blue, #1e88e5) 0 100%
+  );
+  -webkit-mask: radial-gradient(farthest-side, transparent 60%, #000 61%);
+  mask: radial-gradient(farthest-side, transparent 60%, #000 61%);
+  -webkit-backdrop-filter: blur(calc(var(--glass-blur) * 0.75));
+  backdrop-filter: blur(calc(var(--glass-blur) * 0.75));
+  box-shadow: 0 0 0 1px var(--glass-stroke) inset,
+    0 8px 24px rgba(0, 0, 0, 0.25);
+  animation: spin 1s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader {
+    animation: none;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

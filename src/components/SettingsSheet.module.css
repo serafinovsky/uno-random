@@ -1,0 +1,321 @@
+.sheetRoot {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.sheetBackdrop {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.35));
+  opacity: 0;
+  transition: opacity 220ms ease;
+  pointer-events: none;
+}
+
+.sheetBackdrop.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.bottomSheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, var(--glass-bg), var(--glass-bg-strong));
+  color: var(--text-color);
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.35);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  border-top: 1px solid var(--glass-stroke);
+  border-left: 1px solid var(--glass-stroke);
+  border-right: 1px solid var(--glass-stroke);
+  transform: translate3d(0, 100%, 0);
+  opacity: 0.98;
+  transition: transform 280ms ease, opacity 220ms ease;
+  will-change: transform;
+  pointer-events: auto;
+  touch-action: pan-y;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.bottomSheet.open {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
+.sheetContent {
+  padding: 12px 16px 24px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.sheetHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sheetCloseBtn {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid var(--glass-stroke);
+  background: linear-gradient(180deg, var(--glass-bg), var(--glass-bg-strong));
+  -webkit-backdrop-filter: blur(calc(var(--glass-blur) * 0.75));
+  backdrop-filter: blur(calc(var(--glass-blur) * 0.75));
+  color: var(--text-color);
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 160ms ease, box-shadow 160ms ease,
+    border-color 160ms ease, background 160ms ease;
+  box-shadow: var(--shadow-light);
+}
+
+.sheetCloseBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--glass-stroke-strong);
+}
+
+.sheetTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+.settingsSection {
+  margin-bottom: 24px;
+}
+
+.settingsTitle {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 12px;
+  color: var(--text-color);
+}
+
+.schemeRow {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.schemeChip {
+  flex: 1;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid var(--glass-stroke);
+  background: linear-gradient(180deg, var(--glass-bg), var(--glass-bg-strong));
+  -webkit-backdrop-filter: blur(calc(var(--glass-blur) * 0.75));
+  backdrop-filter: blur(calc(var(--glass-blur) * 0.75));
+  color: var(--text-color);
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease,
+    border-color 160ms ease, background 160ms ease;
+  box-shadow: var(--shadow-light);
+}
+
+.schemeChip:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-medium);
+}
+
+.schemeChip.active {
+  border-color: var(--glass-stroke-strong);
+  background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--primary-color) 14%, transparent),
+      transparent
+    ),
+    linear-gradient(180deg, var(--glass-bg), var(--glass-bg-strong));
+}
+
+.themesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.themeChip {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid var(--glass-stroke);
+  background: linear-gradient(180deg, var(--glass-bg), var(--glass-bg-strong));
+  -webkit-backdrop-filter: blur(calc(var(--glass-blur) * 0.75));
+  backdrop-filter: blur(calc(var(--glass-blur) * 0.75));
+  color: var(--text-color);
+  padding: 8px 8px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease,
+    border-color 160ms ease, background 160ms ease;
+  display: block;
+  box-shadow: var(--shadow-light);
+}
+
+.themeChip:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-medium);
+}
+
+.themeChip.active {
+  border-color: var(--glass-stroke-strong);
+  background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--primary-color) 14%, transparent),
+      transparent
+    ),
+    linear-gradient(180deg, var(--glass-bg), var(--glass-bg-strong));
+}
+
+.themeCardPreview {
+  width: 100%;
+  height: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--glass-bg), var(--glass-bg-strong));
+  -webkit-backdrop-filter: blur(calc(var(--glass-blur) * 0.6));
+  backdrop-filter: blur(calc(var(--glass-blur) * 0.6));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--glass-stroke);
+}
+
+.previewSvg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.previewSvg svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.previewFallback {
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+
+.themeName {
+  display: none;
+}
+
+/* Install App Button в SettingsSheet */
+.installAppBtn {
+  width: 100%;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+}
+
+.installAppBtn:hover:not(:disabled) {
+  background: var(--background-color);
+  border-color: var(--primary-color);
+}
+
+.installAppBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.installAppIcon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.installAppText {
+  flex: 1;
+  min-width: 0;
+}
+
+.installAppTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 2px;
+}
+
+.installAppDesc {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* Install Status */
+.installStatus {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: color-mix(in srgb, var(--primary-color) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary-color) 30%, transparent);
+  border-radius: 12px;
+}
+
+.installStatusIcon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.installStatusText {
+  flex: 1;
+}
+
+.installStatusTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 2px;
+}
+
+.installStatusDesc {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.installSpinner {
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

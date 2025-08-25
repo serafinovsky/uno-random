@@ -1,0 +1,84 @@
+{
+  "name": "UNO Random - Free Online UNO Card Generator",
+  "short_name": "UNO Random",
+  "description": "Generate random UNO cards instantly! Free online UNO card generator with beautiful themes. Perfect for UNO games, card games, and entertainment. Draw cards, change themes, and enjoy!",
+  "start_url": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone"],
+  "background_color": "#ffffff",
+  "theme_color": "#6750a4",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": [
+    "games",
+    "entertainment",
+    "utilities",
+    "card-games",
+    "board-games"
+  ],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Draw New Card",
+      "short_name": "New Card",
+      "description": "Draw a new random UNO card instantly",
+      "url": "/?action=draw",
+      "icons": [
+        {
+          "src": "/favicon.svg",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Open Settings",
+      "short_name": "Settings",
+      "description": "Open settings and theme selection for UNO cards",
+      "url": "/?action=settings",
+      "icons": [
+        {
+          "src": "/favicon.svg",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "UNO Random card generator on desktop - showing beautiful card themes and interface"
+    },
+    {
+      "src": "/screenshot-narrow.png",
+      "sizes": "375x667",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "UNO Random mobile app - perfect for generating cards on the go"
+    }
+  ]
+}
