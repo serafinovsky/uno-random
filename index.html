@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" href="./favicon.ico" sizes="any" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#6750a4" />
 
@@ -43,7 +43,7 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="msapplication-TileColor" content="#6750a4" />
     <meta name="msapplication-tap-highlight" content="no" />
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="./manifest.json" />
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -83,7 +83,7 @@
     <script>
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker
-          .register('/sw.js')
+          .register('./sw.js')
           .then((registration) => {
             console.log('SW registered: ', registration)
           })
@@ -93,6 +93,6 @@
       }
     </script>
     <div id="root"></div>
-    <script type="module" src="/src/index.tsx"></script>
+    <script type="module" src="./src/index.tsx"></script>
   </body>
 </html>
