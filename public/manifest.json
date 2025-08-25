@@ -44,7 +44,7 @@
       "name": "Draw New Card",
       "short_name": "New Card",
       "description": "Draw a new random UNO card instantly",
-      "url": "/?action=draw",
+      "url": "./?action=draw",
       "icons": [
         {
           "src": "./favicon.svg",
@@ -56,7 +56,7 @@
       "name": "Open Settings",
       "short_name": "Settings",
       "description": "Open settings and theme selection for UNO cards",
-      "url": "/?action=settings",
+      "url": "./?action=settings",
       "icons": [
         {
           "src": "./favicon.svg",

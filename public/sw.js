@@ -2,12 +2,35 @@ const VERSION = "v2";
 const APP_SHELL_CACHE = `uno-app-shell-${VERSION}`;
 const ASSETS_CACHE = `uno-assets-${VERSION}`;
 
-const APP_SHELL_URLS = ["/", "/index.html", "/manifest.json", "/favicon.svg"];
+const APP_SHELL_URLS = ["/", "/index.html", "/manifest.json"];
+const OPTIONAL_URLS = ["/favicon.svg", "/favicon.ico"];
 
 self.addEventListener("install", (event) => {
   self.skipWaiting();
   event.waitUntil(
-    caches.open(APP_SHELL_CACHE).then((cache) => cache.addAll(APP_SHELL_URLS))
+    caches
+      .open(APP_SHELL_CACHE)
+      .then((cache) => {
+        const essentialPromises = APP_SHELL_URLS.map((url) =>
+          cache.add(url).catch((error) => {
+            console.warn(`Failed to cache essential file ${url}:`, error);
+            return null;
+          })
+        );
+
+        const optionalPromises = OPTIONAL_URLS.map((url) =>
+          cache.add(url).catch((error) => {
+            console.log(`Optional file ${url} not available for caching`);
+            return null;
+          })
+        );
+
+        return Promise.allSettled([...essentialPromises, ...optionalPromises]);
+      })
+      .catch((error) => {
+        console.error("Service Worker install failed:", error);
+        return Promise.resolve();
+      })
   );
 });
 
@@ -17,7 +40,9 @@ self.addEventListener("activate", (event) => {
       if (self.registration.navigationPreload) {
         try {
           await self.registration.navigationPreload.enable();
-        } catch {}
+        } catch (error) {
+          console.warn("Navigation preload failed:", error);
+        }
       }
 
       const cacheNames = await caches.keys();

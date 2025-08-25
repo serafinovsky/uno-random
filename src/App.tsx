@@ -27,9 +27,10 @@ function App() {
   const [pwaInitialized, setPwaInitialized] = createSignal(false);
 
   const handleBeforeInstallPrompt = (event: Event) => {
-    event.preventDefault();
-    setDeferredPrompt(event as BeforeInstallPromptEvent);
+    const promptEvent = event as BeforeInstallPromptEvent;
+    setDeferredPrompt(promptEvent);
     setCanInstall(true);
+    console.log("PWA install prompt received and stored");
   };
 
   const handleAppInstalled = () => {
@@ -46,9 +47,13 @@ function App() {
     try {
       await prompt.prompt();
       const { outcome } = await prompt.userChoice;
+
       if (outcome === "accepted") {
         setCanInstall(false);
         setIsInstalled(true);
+        console.log("PWA installed successfully");
+      } else {
+        console.log("PWA installation was declined");
       }
       setDeferredPrompt(null);
       return outcome === "accepted";
